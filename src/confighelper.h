@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2015 Symeon Huang <hzwhuang@gmail.com>
+ * Copyright (C) 2015-2016 Symeon Huang <hzwhuang@gmail.com>
  *
  * shadowsocks-qt5 is free software; you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as published
@@ -42,7 +42,12 @@ public:
     bool isOnlyOneInstance() const;
     bool isShowToolbar() const;
     bool isShowFilterBar() const;
-    void setGeneralSettings(int ts, bool hide, bool oneInstance);
+    bool isNativeMenuBar() const;
+    void setGeneralSettings(int ts, bool hide, bool oneInstance, bool nativeMB);
+    QByteArray getMainWindowGeometry() const;
+    void setMainWindowGeometry(const QByteArray &geometry);
+    QByteArray getMainWindowState() const;
+    void setMainWindowState(const QByteArray &state);
 
 public slots:
     void save();
@@ -58,6 +63,7 @@ private:
     bool onlyOneInstace;
     bool showToolbar;
     bool showFilterBar;
+    bool nativeMenuBar;
     QSettings *settings;
     ConnectionTableModel *model;
     QString configFile;

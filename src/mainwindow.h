@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2014-2015 Symeon Huang <hzwhuang@gmail.com>
+ * Copyright (C) 2014-2016 Symeon Huang <hzwhuang@gmail.com>
  *
  * shadowsocks-qt5 is free software; you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as published
@@ -53,6 +53,7 @@ private:
     void editRow(int row);
     void blockChildrenSignals(bool);
     void checkCurrentIndex();
+    void setupActionIcon();
 
     static const QUrl issueUrl;
 
@@ -83,6 +84,7 @@ private slots:
     void onCustomContextMenuRequested(const QPoint &pos);
     void onFilterToggled(bool);
     void onFilterTextChanged(const QString &text);
+    void onQRCodeCapturerResultFound(const QString &uri);
 
 protected slots:
     void hideEvent(QHideEvent *e);
